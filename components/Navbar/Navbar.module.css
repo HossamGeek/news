@@ -1,0 +1,21 @@
+.nav{
+    background-color: #8bedb7;
+}
+.bttn {
+    width: 120px;
+    border : 1px solid #8bedb7;
+    border-radius: 15px solid #8bedb7 ;
+    background-color: white;
+    color: #bebebe;  
+    margin-right: 25px;  
+}
+
+.bttn:hover,
+.bttn:focus,
+.bttn:active{
+    background-color: #8bedb7;
+    border : 1px solid #fff;
+
+    border-radius: 15px solid #fff;
+   
+}
