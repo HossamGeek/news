@@ -34,11 +34,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 const NewsItems = (props) =>{
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} >
+    <Card className={classes.root} key={props.key} >
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
@@ -64,12 +65,9 @@ const NewsItems = (props) =>{
       </CardContent>
       <CardActions disableSpacing className={classes.actions}>
         {props.keywords.map(data=>(
-        <Button variant="outlined" className={classes.button} key={data.id}>
-        {data.name}
-      </Button>
-        ))}
-     
-       
+            <Button variant="outlined" className={classes.button} key={data.id}>
+            {data.name}
+          </Button> ))}
       </CardActions>
      
     </Card>
