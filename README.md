@@ -6,7 +6,4 @@ First, run the development server:
 npm i 
 # and
 npm run dev
-# or
-yarn dev
-```
 
