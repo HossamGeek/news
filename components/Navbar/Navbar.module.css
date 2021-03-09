@@ -27,3 +27,9 @@
     border-radius: 19px;
     border: 1px solid #838486;
 }
+
+.navbar-toggler 
+{
+    border: none;
+    outline: none;
+}

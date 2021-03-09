@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-   
+    
     position: "fixed",
-    width: "25%",
+    width: "20%",
     height: "100%"
 
   },
@@ -58,22 +58,19 @@ export default function Home() {
         <div className={classes.root}>
       <Grid container >
       <Hidden mdDown>
-        <Grid item xs={3} >
+             <Grid item xs={3} style={{"paddingLeft":"50px"}}>
               <Paper className={classes.paper}></Paper>     
         </Grid>
         </Hidden>
+        
         <Grid item xs={12} lg={6} style={{"padding":"0px 35px"}}>
-        
           {items.length ? items.map(data=>(
-          <Newsitem source={data.source} 
-          created_at={data.created_at} title ={data.title} keywords={data.keywords} key={data.id}/>))
-          : <Alert  variant="danger">No News fetch</Alert>}
-        
-          
+          <Newsitem source={data.source}
+          created_at={data.created_at} title ={data.title} keywords={data.keywords} />))
+          : <Alert  variant="danger">No News fetch data</Alert>}
         </Grid>
         <Hidden mdDown>
         <Grid item xs={3}>
-        
           <Paper className={classes.paper}></Paper>
         </Grid> 
         </Hidden>

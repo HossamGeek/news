@@ -15,8 +15,9 @@ import moment from 'moment';
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: "20px",
-    marginBottom:"30px"
-
+    marginBottom:"30px",
+    "width":"85%",
+    "marginLeft": "7%"
   },
   avatar: {
     backgroundColor: red[500],
@@ -41,7 +42,7 @@ const NewsItems = (props) =>{
       <CardHeader
         avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            <img src={props.source.url} width="100" height="100"/>
+            <img src={props.source.url} width="100" height="100" title="image" alt="image"/>
           </Avatar>
         }
         action={
