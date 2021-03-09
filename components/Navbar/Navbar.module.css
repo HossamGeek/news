@@ -1,10 +1,13 @@
 .nav{
-    background-color: #8bedb7;
+    background-color: #439e75;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 }
 .bttn {
     width: 120px;
-    border : 1px solid #8bedb7;
-    border-radius: 15px solid #8bedb7 ;
+    border : 1px solid #439e75;
+    border-radius: 15px solid #439e75 ;
     background-color: white;
     color: #bebebe;  
     margin-right: 25px;  
@@ -13,9 +16,14 @@
 .bttn:hover,
 .bttn:focus,
 .bttn:active{
-    background-color: #8bedb7;
+    background-color: #439e75;
     border : 1px solid #fff;
 
     border-radius: 15px solid #fff;
    
+}
+
+.search{
+    border-radius: 19px;
+    border: 1px solid #838486;
 }

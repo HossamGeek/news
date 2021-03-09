@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row,Col, Nav, Navbar,NavDropdown,Form,Button ,FormControl} from 'react-bootstrap'
+import { Navbar,Button ,FormControl} from 'react-bootstrap'
 import Hidden from '@material-ui/core/Hidden';
 import styles from './Navbar.module.css'
 const NavBar = ()=>{
@@ -7,9 +7,9 @@ const NavBar = ()=>{
         <>
         <Navbar expand="lg" className={styles.nav}>
        
-        <Navbar.Brand href="#home" className="offset-lg-1 offset-md-0"  style={{color:"#fff"}} >React-Bootstrap</Navbar.Brand>
-        
-        <Hidden mdUp><FormControl type="text" placeholder="search" className="col-6">
+        <Navbar.Brand href="#home" className="offset-lg-1 offset-md-0"  style={{color:"#fff"}} >
+            Newsbuzz</Navbar.Brand>
+        <Hidden mdUp><FormControl type="text" placeholder="search" className={`col-6 ${styles.search}`} >
             </FormControl></Hidden>
             
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

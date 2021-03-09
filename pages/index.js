@@ -1,31 +1,49 @@
 import Head from 'next/head'
 import NavBar from '../components/Navbar'
-
-
+import Newsitem from '../components/Newsitem'
+import Hidden from '@material-ui/core/Hidden';
 import styles from '../styles/Home.module.css'
-
-
 import { makeStyles } from '@material-ui/core/styles';
+import { Alert} from 'react-bootstrap'
+
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
+import {useState,useEffect} from 'react';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    paddingTop:"15px",position:"relative"
+    paddingTop:"75px"
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-    position:"fixed",
-    width:"100%"
+   
+    position: "fixed",
+    width: "25%",
+    height: "100%"
+
   },
 }));
 
 export default function Home() {
   const classes = useStyles();
+  const [items,setItems] = useState([])
+  useEffect(()=>{
+    axios.get('http://80.240.21.204:1337/news?skip=10&limit=20',
+    {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+      },
+      }).then(res=>{
+      console.log("res >>" ,res)
 
+      setItems(res.data.news)
+    }).catch(err=>{console.log("err",err);})
+  },[])
   return (
     <div>
       <Head>
@@ -38,16 +56,27 @@ export default function Home() {
       <main>
         <NavBar/>
         <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container >
+      <Hidden mdDown>
+        <Grid item xs={3} >
+              <Paper className={classes.paper}></Paper>     
+        </Grid>
+        </Hidden>
+        <Grid item xs={12} lg={6} style={{"padding":"0px 35px"}}>
+        
+          {items.length ? items.map(data=>(
+          <Newsitem source={data.source} 
+          created_at={data.created_at} title ={data.title} keywords={data.keywords} key={data.id}/>))
+          : <Alert  variant="danger">No News fetch</Alert>}
+        
+          
+        </Grid>
+        <Hidden mdDown>
         <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
+        
+          <Paper className={classes.paper}></Paper>
+        </Grid> 
+        </Hidden>
       </Grid>
     </div>
       </main>
